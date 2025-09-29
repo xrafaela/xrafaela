@@ -1,5 +1,5 @@
 # Rafaela Rodrigues (@xrafaela)  
-🎓 Sou estudante Engenharia Informárica, membro do Student Developer Pack desde setembro de 2025  
+🎓 Sou estudante de Engenharia Informárica, membro do Student Developer Pack desde setembro de 2025  
 💻 Apaixonada por tecnologia, programação e aprendizado contínuo
 
 ## Sobre mim
