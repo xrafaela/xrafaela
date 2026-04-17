@@ -59,11 +59,11 @@ class FileOracle:
         if self.assistant is None:
             return self._fallback_answer(question, context)
 
-        if callable(self.assistant) and not isinstance(self.assistant, AssistantProtocol):
-            return self.assistant(question, context)
-
         if isinstance(self.assistant, AssistantProtocol):
             return self.assistant.answer(question, context)
+
+        if callable(self.assistant):
+            return self.assistant(question, context)
 
         raise TypeError("assistant must be callable or implement answer(question, files)")
 
