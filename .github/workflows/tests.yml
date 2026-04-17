@@ -27,13 +27,4 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: |
-          set +e
-          python -m pytest -q
-          status=$?
-          set -e
-          if [ "$status" -eq 5 ]; then
-            echo "No tests were collected."
-            exit 0
-          fi
-          exit "$status"
+        run: python -m pytest -q || { [ "$?" -eq 5 ] && echo "No tests were collected."; }
