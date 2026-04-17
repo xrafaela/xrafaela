@@ -61,7 +61,7 @@ class FileOracle:
         if self.assistant is None:
             return self._fallback_answer(question, context)
 
-        if isinstance(self.assistant, AssistantProtocol):
+        if hasattr(self.assistant, "answer") and callable(self.assistant.answer):
             return self.assistant.answer(question, context)
 
         if callable(self.assistant):
