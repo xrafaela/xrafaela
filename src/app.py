@@ -4,6 +4,8 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import Protocol, runtime_checkable
 
+MAX_SNIPPET_LENGTH = 120
+
 
 @runtime_checkable
 class AssistantProtocol(Protocol):
@@ -80,6 +82,7 @@ class FileOracle:
 
         file_list = ", ".join(sorted(files.keys()))
         snippets = "\n".join(
-            f"[{name}] {content[:120].strip()}" for name, content in sorted(files.items())
+            f"[{name}] {content[:MAX_SNIPPET_LENGTH].strip()}"
+            for name, content in sorted(files.items())
         )
         return f"Question: {question}\nFiles: {file_list}\nContext:\n{snippets}"
